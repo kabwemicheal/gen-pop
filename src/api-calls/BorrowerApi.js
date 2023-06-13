@@ -3,9 +3,9 @@ import {addDoc, getFirestore, collection, getDocs} from 'firebase/firestore';
 
 const db = getFirestore(firebaseConfigApp)
 
-export const getBorrowers = async() => {
+export const getBorrowers = async(collectionKey) => {
     try {
-       const querySnapshot = await getDocs(collection(db, 'borrowers'))
+       const querySnapshot = await getDocs(collection(db, collectionKey))
        return querySnapshot.docs.map(doc => doc.data())
     } catch (e) {
         console.log(e)

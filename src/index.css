@@ -3,4 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body{
+    scroll-behavior: auto;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+}

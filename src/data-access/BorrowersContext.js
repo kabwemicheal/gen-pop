@@ -7,7 +7,7 @@ export const BorrowersProvider = ({ children }) => {
   const [borrowers, setBorrowers] = useState([]);
 
   const getAllBorrowers = async () => {
-    const res = await getBorrowers()
+    const res = await getBorrowers("borrowers")
     if(!!res) {
       setBorrowers(res)
     }

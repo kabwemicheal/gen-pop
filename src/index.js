@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BorrowersProvider } from "./data-access/BorrowersContext";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BorrowersProvider>
-      <App />
-    </BorrowersProvider>
+    <BrowserRouter>
+      <BorrowersProvider>
+        <App />
+      </BorrowersProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
