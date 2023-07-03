@@ -1,10 +1,11 @@
 import React from 'react'
-import BorrowersForm from './BorrowersForm'
+import BorrowerModal from './BorrowerModal'
 
-const EditBorrower = () => {
+
+const EditBorrower = ({borrowerParams}) => {
   return (
     <div>
-        <BorrowersForm />
+        <BorrowerModal borrowerParams={borrowerParams} />
     </div>
   )
 }

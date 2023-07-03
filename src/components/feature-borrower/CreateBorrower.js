@@ -1,13 +1,12 @@
 import React from 'react'
-import BorrowersForm from './BorrowersForm'
+import BorrowerModal from './BorrowerModal';
 
 const CreateBorrower = () => {
   return (
-    <div>
-      <h1>Hello this the form element and it should display something</h1>
-       { <BorrowersForm />}
+    <div >
+       <BorrowerModal />
     </div>
   )
 }
 
-export default CreateBorrower
+export default CreateBorrower;
