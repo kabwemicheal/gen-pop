@@ -1,4 +1,5 @@
-import { firebaseConfigApp } from "../firebase/config/FirebaseConfig"
+import { onAuthStateChanged } from "firebase/auth";
+import { firebaseConfigApp } from "../../firebase/config/FirebaseConfig"
 import {addDoc, getFirestore, collection, getDocs, doc,updateDoc, deleteDoc} from 'firebase/firestore';
 
 const db = getFirestore(firebaseConfigApp)
@@ -39,3 +40,4 @@ export const deleteBorrowerApi = async (collectionKey, id) => {
         console.log(e)
     }
 }
+

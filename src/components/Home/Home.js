@@ -6,9 +6,6 @@ const Home = () => {
   const { borrowers } = useContext(BorrowersContext);
   return (
     <div className="pt-3 space-y-5">
-      <div>
-      <Login />
-      </div>
       <div className="flex h-12 space-x-2">
         <div className="flex flex-1 justify-center items-center h-full border rounded-lg shadow-sm bg-purple-400">
           <span className="z-50">

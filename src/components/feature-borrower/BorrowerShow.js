@@ -35,7 +35,7 @@ const BorrowersShow = () => {
             >
               <td className="whitespace-nowrap px-6 py-4">{index + 1}</td>
               <td className="whitespace-nowrap px-6 py-4">
-                {borrowers[key].name ||
+                {
                   borrowers[key].firstName
                     .concat(" ")
                     .concat(borrowers[key].lastName)}{" "}
@@ -44,10 +44,10 @@ const BorrowersShow = () => {
                 {borrowers[key].amount}
               </td>
               <td className="whitespace-nowrap px-6 py-4">
-                {borrowers[key].borrow_date || borrowers[key].date}
+                {borrowers[key].date}
               </td>
               <td className="whitespace-nowrap px-6 py-4">
-                {borrowers[key].return_date || borrowers[key].tenure}
+                {borrowers[key].tenure}
               </td>
               <td className="flex items-center space-x-2 px-6 py-4">
                 <span

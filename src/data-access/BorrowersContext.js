@@ -4,7 +4,7 @@ import {
   createBorrowerApi,
   deleteBorrowerApi,
   editBorrowerApi,
-} from "../api-calls/BorrowerApi";
+} from "./api-calls/BorrowerApi";
 
  import { COLLECTION_KEYS } from "../utils/CollectionKeys";
 
@@ -14,6 +14,8 @@ export const BorrowersProvider = ({ children }) => {
   const [borrowers, setBorrowers] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [open, setOpen] = useState(false);
+  const [loader, setLoader] = useState(true)
+
 
   useEffect(() => {
    const fetchBorrowers = async () => await getAllBorrowers(COLLECTION_KEYS.BORROWERS);
@@ -23,6 +25,7 @@ export const BorrowersProvider = ({ children }) => {
   const getAllBorrowers = async (collectionKey) => {
     const res = await getBorrowers(collectionKey);
     if (!!res) {
+      setLoader(false)
       setBorrowers(res);
     }
   };
@@ -70,7 +73,8 @@ export const BorrowersProvider = ({ children }) => {
     isEditing,
     setIsEditing,
     open,
-    setOpen
+    setOpen,
+    loader
   };
 
   return (

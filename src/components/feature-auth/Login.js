@@ -1,51 +1,67 @@
-import React, { useState } from "react";
+import { Button, Card, CardActions, CardContent, CardHeader, Typography, TextField } from "@mui/material";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../../data-access/UserContext";
 
 const Login = () => {
+
+  const {signUpUserContext, loginUserContext }  = useContext(UserContext)
     
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formFields, setFormFields] = useState({
+    email: '',
+    password: ''
+  });
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setEmail("");
+    loginUserContext(formFields)
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormFields({...formFields, [name]: value});
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.currentTarget.value);
-  };
+ 
 
   return (
-    <div className="container mx-auto bg-purple-500">
-      <form className="flex flex-col w-1/2 space-y-8" onSubmit={handleSubmit}>
-
-        <div className="flex flex-col space-y-2">
-          <label htmlFor="email">email</label>
-          <input
-            className="flex-1 outline-none border"
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
+    <div className="flex justify-center items-center w-screen h-screen bg-slate-900">
+     <Card sx={{minWidth: 400, minHeight: 300}} >
+      <CardHeader>
+       <span className="text-center">Login</span>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-col space-y-3">
+        <TextField
+                id="Email"
+                label="Email"
+                name="email"
+                type="email"
+                fullWidth
+                required
+                focused
+                variant="standard"
+                onChange={handleChange}
+                value={formFields.email}
+              />
+              <TextField
+                id="Password"
+                label="Password"
+                name="password"
+                type="password"
+                fullWidth
+                required
+                variant="standard"
+                onChange={handleChange}
+                value={formFields.password}
+              />
         </div>
-
-        <div className="flex flex-col space-y-2">
-          <label htmlFor="password">password</label>
-          <input
-            className="flex-1 outline-none border border-gray-200"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <button type="submit" className="">
-          submit
-        </button>
-      </form>
+      </CardContent>
+      <CardActions>
+       <button onClick={handleSubmit} className="bg-slate-900 w-full py-2 text-white rounded-sm mt-5">login</button>
+      </CardActions>
+     </Card>
+      
     </div>
   )
 };
