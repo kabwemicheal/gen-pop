@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import BorrowersShow from "./BorrowerShow";
 import BorrowerModal from "./BorrowerModal";
 import { BorrowersContext } from "../../data-access/BorrowersContext";
-import { Box, Button, Skeleton } from "@mui/material";
+import { Box, Button, Skeleton, TablePagination } from "@mui/material";
 import { VscAdd } from "react-icons/vsc";
 
 const BorrowersList = () => {
@@ -12,19 +12,28 @@ const BorrowersList = () => {
     setOpen(!open);
   };
 
+  const [page, setPage] = useState(2);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <>
       {loader ? (
         <Box>
-          <Skeleton animation="wave"/>
-          <Skeleton animation="wave"/>
-          <Skeleton animation="wave"/>
-          <Skeleton animation="wave"/>
-          <Skeleton animation="wave"/>
-          <Skeleton animation="wave"/>
-          <Skeleton animation="wave"/>
+          <Skeleton 
+            animation="wave"  
+            width={210}
+            height={118} 
+          />
         </Box>
-        
       ) : (
         <div className="flex flex-col mt-3">
           {open && <BorrowerModal />}
@@ -74,7 +83,16 @@ const BorrowersList = () => {
                 </div>
               </div>
             </div>
+            <TablePagination
+            component="div"
+            count={100}
+            page={page}
+            onPageChange={handleChangePage}
+            rowsPerPage={rowsPerPage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
           </div>
+         
         </div>
       )}
     </>

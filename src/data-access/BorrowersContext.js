@@ -18,8 +18,9 @@ export const BorrowersProvider = ({ children }) => {
 
 
   useEffect(() => {
-   const fetchBorrowers = async () => await getAllBorrowers(COLLECTION_KEYS.BORROWERS);
-   fetchBorrowers()
+   (async function(){
+    await getAllBorrowers(COLLECTION_KEYS.BORROWERS)
+   })();
   }, [])
 
   const getAllBorrowers = async (collectionKey) => {
@@ -35,6 +36,7 @@ export const BorrowersProvider = ({ children }) => {
     if (!!addedBorrower) {
       borrowers[addedBorrower.id] = borrower;
       setBorrowers({ ...borrowers });
+      setLoader(false)
     }
   };
 
@@ -44,23 +46,25 @@ export const BorrowersProvider = ({ children }) => {
       const updateBorrowers = Object.keys(borrowers).reduce((acc, val) => {
         if (val === id) {
           borrowers[id] = borrower;
-          return acc;
         }
+        return acc;
       }, {});
       setBorrowers({ ...borrowers, ...updateBorrowers });
+      setLoader(false)
     }
   };
 
-  const deleteBorrowerContext = async (collectionKey, id) => {
-    const deleted = await deleteBorrowerApi(collectionKey, id);
+  const deleteBorrowerContext = async (params) => {
+    const deleted = await deleteBorrowerApi(params.collectionKey, params.id);
     if (deleted === undefined) {
       const filterBorrowerList = Object.keys(borrowers)
-        .filter((key) => key !== id)
+        .filter((key) => key !== params.id)
         .reduce((acc, val) => {
           acc[val] = borrowers[val];
           return acc;
         }, {});
       setBorrowers({ ...filterBorrowerList });
+      setLoader(false)
     }
   };
 
@@ -74,7 +78,8 @@ export const BorrowersProvider = ({ children }) => {
     setIsEditing,
     open,
     setOpen,
-    loader
+    loader,
+    setLoader
   };
 
   return (

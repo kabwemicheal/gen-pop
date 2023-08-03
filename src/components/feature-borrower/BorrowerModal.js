@@ -37,6 +37,7 @@ const BorrowerModal = ({ borrowerParams }) => {
     isEditing,
     open,
     setOpen,
+    setLoader
   } = useContext(BorrowersContext);
 
   const valuesToInialize =
@@ -45,6 +46,7 @@ const BorrowerModal = ({ borrowerParams }) => {
       : initialValues;
 
   const [formFields, setFormFields] = useState({ ...valuesToInialize });
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,6 +55,7 @@ const BorrowerModal = ({ borrowerParams }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     if (isEditing) {
       setIsEditing(!isEditing);
       editBorrowerContext(
@@ -65,6 +68,7 @@ const BorrowerModal = ({ borrowerParams }) => {
       setOpen(!open);
       createBorrowerContext(formFields, COLLECTION_KEYS.BORROWERS);
     }
+    setLoader(true)
   };
 
   const handleClose = () => {
@@ -73,7 +77,7 @@ const BorrowerModal = ({ borrowerParams }) => {
   };
 
   return (
-    <div>
+    <>
       <Dialog
         maxWidth={"md"}
         fullWidth
@@ -184,7 +188,7 @@ const BorrowerModal = ({ borrowerParams }) => {
           <Button onClick={handleClose}>Cancel</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };
 
