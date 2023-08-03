@@ -4,9 +4,9 @@ import BorrowerModal from './BorrowerModal'
 
 const EditBorrower = ({borrowerParams}) => {
   return (
-    <div>
+    <>
         <BorrowerModal borrowerParams={borrowerParams} />
-    </div>
+    </>
   )
 }
 

@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 body{
-    scroll-behavior: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'Nunito', sans-serif;
 }
