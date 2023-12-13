@@ -7,6 +7,7 @@ import { COLLECTION_KEYS } from "../../utils/CollectionKeys";
 import EditBorrower from "./EditBorrower";
 import ConfirmationDialog from "../../UI/ConfirmationDialog";
 import { Skeleton } from "@mui/material";
+import handleDateUtil from "../../utils/handleDateUtil";
 
 const BorrowersShow = () => {
   const [borrowerParams, setBorrowerParams] = useState({
@@ -33,6 +34,8 @@ const BorrowersShow = () => {
     setIsEditing(true);
     setBorrowerParams({ id, borrower });
   };
+
+   
 
   return (
     <>
@@ -74,7 +77,10 @@ const BorrowersShow = () => {
                   {borrowers[key].date}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">
-                  {borrowers[key].tenure}
+                  {borrowers[key].date}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4">
+                  {borrowers[key].amount * 25/100}
                 </td>
                 <td className="flex items-center space-x-2 px-6 py-4">
                   <span

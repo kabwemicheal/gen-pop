@@ -102,9 +102,8 @@ const BorrowerModal = ({ borrowerParams }) => {
                   value={formFields.salutation}
                   defaultValue={formFields.salutation}
                 >
-                  <MenuItem value={SALUTATION_VALUES.Male}>Male</MenuItem>
-                  <MenuItem value={SALUTATION_VALUES.Female}>Female</MenuItem>
-                  <MenuItem value={SALUTATION_VALUES.Other}>Other</MenuItem>
+                  <MenuItem value={SALUTATION_VALUES.Male}>M</MenuItem>
+                  <MenuItem value={SALUTATION_VALUES.Female}>F</MenuItem>
                 </Select>
               </FormControl>
               <TextField

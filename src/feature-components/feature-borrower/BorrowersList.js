@@ -96,10 +96,13 @@ const BorrowersList = () => {
                           Amount
                         </th>
                         <th scope="col" className="px-6 py-4">
-                          Date of borrow
+                         D.O.B
                         </th>
                         <th scope="col" className="px-6 py-4">
-                          Date of return
+                          D.O.R
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Interest
                         </th>
                         <th scope="col" className="px-6 py-4">
                           Actions

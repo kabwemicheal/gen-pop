@@ -3,12 +3,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  setPersistence,
   onAuthStateChanged,
-  browserSessionPersistence,
 } from "firebase/auth";
+import { firebaseConfigApp } from "../../firebase/config/FirebaseConfig";
 
-const auth = getAuth();
+const auth = getAuth(firebaseConfigApp);
+
 export const signUpUserApi = async (userCredentials) => {
   try {
     const user = await createUserWithEmailAndPassword(
@@ -24,12 +24,14 @@ export const signUpUserApi = async (userCredentials) => {
 
 export const loginUserApi = async (userCredentials) => {
   try {
-    const user = await signInWithEmailAndPassword(
+    const res = await signInWithEmailAndPassword(
       auth,
       userCredentials.email,
       userCredentials.password
     );
-    return user;
+    
+    return res.user
+   
   } catch (error) {
     console.log(error);
   }

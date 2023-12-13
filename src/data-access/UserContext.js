@@ -20,10 +20,10 @@ export const UserProvider = ({ children }) => {
           setUser(user);
           return navigate("/dashboard");
         }
-        navigate("/");
+        return navigate("/");
       });
     })();
-  }, []);
+  }, [user]);
 
   const signUpUserContext = async (userCredentials) =>
     await signUpUserApi(userCredentials);
