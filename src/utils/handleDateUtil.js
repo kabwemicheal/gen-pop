@@ -22,9 +22,7 @@ const handleDateUtil = (dateString, monthsToAdd) => {
        
       
         // Return the new date
-     return currentDate
-      
-
+     return currentDate.getDate()
 }
 
 export default handleDateUtil

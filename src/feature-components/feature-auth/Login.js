@@ -13,10 +13,9 @@ import { UserContext } from "../../data-access/UserContext";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { loginUserContext } = useContext(UserContext);
+  const { loginUserContext, loader, setLoader } = useContext(UserContext);
 
-  const [loader, setLoader] = useState(false);
-  const [buttonClasses, setButtonClasses] = useState("bg-slate-900 text-white");
+  const [buttonClasses, setButtonClasses] = useState("");
 
   const [formFields, setFormFields] = useState({
     email: "",
@@ -28,7 +27,7 @@ const Login = () => {
     if (!formFields.email || !formFields.password) {
       return alert("please ensure you provide credentials");
     } else {
-      setLoader(true);
+      setLoader(true)
       setButtonClasses("bg-slate-700 text-black");
       loginUserContext(formFields);
     }
@@ -75,7 +74,7 @@ const Login = () => {
         <CardActions>
           <button
             onClick={handleSubmit}
-            className={`${buttonClasses} w-full py-2 rounded-sm mt-5`}
+            className={`${ loader ? buttonClasses : "bg-slate-900 text-white"} w-full py-2 rounded-sm mt-5`}
             disabled={loader}
           >
             login

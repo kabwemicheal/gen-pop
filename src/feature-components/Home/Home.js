@@ -6,9 +6,9 @@ const Home = () => {
   const { borrowers } = useContext(BorrowersContext);
   return (
     <div className="pt-3 space-y-5">
-      <div className="flex h-12 space-x-2">
-        <div className="flex flex-1 justify-center items-center h-full border rounded-lg shadow-sm bg-purple-400">
-          <span className="z-50">
+      <div className="flex h-32 space-x-2">
+        <div className="flex flex-1 justify-center items-center border rounded-lg shadow-sm bg-slate-900">
+          <span className="z-50 text-white text-base font-extrabold">
             Number of borrowers: {!!borrowers && Object.entries(borrowers).length}
           </span>
         </div>

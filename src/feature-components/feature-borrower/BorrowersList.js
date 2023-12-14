@@ -31,6 +31,8 @@ const BorrowersList = () => {
     { label: "First Name", key: "firstName" },
     { label: "Last Name", key: "lastName" },
     { label: "Amount", key: "amount" },
+    { label: "Interest", key: "interest" },
+    { label: "Amount to Return", key: "amountReturned" },
     { label: "Date of borrow", key: "date" },
     { label: "Date of return", key: "tenure" },
     { label: "Address", key: "address" },
@@ -93,13 +95,22 @@ const BorrowersList = () => {
                           Name
                         </th>
                         <th scope="col" className="px-6 py-4">
-                          Amount
+                          Amount Borrowed
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Interest
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Amount to return 
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Tenure in Months
                         </th>
                         <th scope="col" className="px-6 py-4">
                           Date of borrow
                         </th>
                         <th scope="col" className="px-6 py-4">
-                          Date of return
+                          D.O.R
                         </th>
                         <th scope="col" className="px-6 py-4">
                           Actions
