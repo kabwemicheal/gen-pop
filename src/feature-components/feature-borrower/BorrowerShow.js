@@ -7,6 +7,8 @@ import { COLLECTION_KEYS } from "../../utils/CollectionKeys";
 import EditBorrower from "./EditBorrower";
 import ConfirmationDialog from "../../UI/ConfirmationDialog";
 import { Skeleton } from "@mui/material";
+import handleDateUtil from "../../utils/handleDateUtil";
+import { handleInterest, amountToReturn } from "../../utils/handleInterestUtil";
 
 const BorrowersShow = () => {
   const [borrowerParams, setBorrowerParams] = useState({
@@ -71,10 +73,19 @@ const BorrowersShow = () => {
                   {borrowers[key].amount}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">
-                  {borrowers[key].date}
+                  {borrowers[key].interest}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4">
+                  {borrowers[key].amountReturned}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">
                   {borrowers[key].tenure}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4">
+                  {borrowers[key].date}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4">
+                  {borrowers[key].date}
                 </td>
                 <td className="flex items-center space-x-2 px-6 py-4">
                   <span
