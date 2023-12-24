@@ -28,7 +28,7 @@ const Dashboard = () => {
       <TopNav isDynamic={true} />
       <div className="flex flex-row">
         <LeftNav leftMenuItems={leftMenuItems} />
-        <div className="flex-1 z-50 border border-gray-300 px-3 overflow-auto relative">
+        <div className="flex-1 z-50 border border-gray-300 px-3">
           <Outlet  />
         </div>
       </div>

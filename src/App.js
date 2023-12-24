@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import BorrowersList from "./components/feature-borrower/BorrowersList";
-import { Route, Routes, redirect, useNavigate } from "react-router-dom";
-import Home from "./components/Home/Home";
-import { UserContext } from "./data-access/UserContext";
-import Login from "./components/feature-auth/Login";
-import Dashboard from "./components/feature-dashboard/Dashboard";
-import LandingPage from "./components/Home/LandingPage";
+import BorrowersList from "./feature-components/feature-borrower/BorrowersList";
+import { Route, Routes} from "react-router-dom";
+import Home from "./feature-components/Home/Home";
+import Login from "./feature-components/feature-auth/Login";
+import Dashboard from "./feature-components/feature-dashboard/Dashboard";
+import LandingPage from "./feature-components/Home/LandingPage";
 
 function App() { 
   return (

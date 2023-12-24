@@ -6,7 +6,6 @@ import {
   setPersistence,
   browserSessionPersistence,
   onAuthStateChanged,
-  browserSessionPersistence,
 } from "firebase/auth";
 
 const auth = getAuth();

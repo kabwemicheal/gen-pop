@@ -49,7 +49,7 @@ const BorrowersList = () => {
         </>
         
       ) : (
-        <div className="flex flex-col mt-3">
+        <div style={{overflowY: "auto", overflowX:"hidden", width: "100%", height:"80%"}} className="flex flex-col mt-3">
           {open && <BorrowerModal />}
           <div className="flex justify-between items-center my-3">
             <div className="flex w-1/2 items-center space-x-2">
@@ -81,8 +81,8 @@ const BorrowersList = () => {
               </CSVLink>
             </div>
           </div>
-          <div className="flex flex-col">
-            <div className="overflow-y-auto sm:-mx-6 lg:-mx-8">
+          <div className="flex flex-col ov">
+            <div className="sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                 <div className="">
                   <table className="min-w-full text-left text-sm font-light text-white">
